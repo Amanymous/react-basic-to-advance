@@ -9,7 +9,7 @@ class SignIn extends React.Component {
     super(props);
     this.state = {
       email: "",
-      password: "",
+      password: ""
     };
   }
   handleSubmit = (event) => {
@@ -30,26 +30,27 @@ class SignIn extends React.Component {
         
         <form onSubmit={this.handleSubmit}>
           <FormInput
-            name="email"
-            type="email"
+            name='email'
+            type='email'
             handleChange={this.handleChange}
             value={this.state.email}
-            label="email"
+            label='email'
             required
           />
           <FormInput
-            name="password"
-            type="password"
-            value={this.state.email}
+            name='password'
+            type='password'
+            value={this.state.password}
             handleChange={this.handleChange}
             label='password'
             required
           />
-          <CustomButton type="submit">Sign In</CustomButton>
-          <CustomButton onClick={signInWithGoogle}>
-              {' '}
-              Sign In With Google{' '}
-              </CustomButton>
+           <div className='buttons'>
+            <CustomButton type='submit'> Sign in </CustomButton>
+            <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+              Sign in with Google
+            </CustomButton>
+          </div>
 
         </form>
       </div>
