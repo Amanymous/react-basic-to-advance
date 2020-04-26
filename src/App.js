@@ -5,7 +5,7 @@ import HomePage from "./pages/homepage/homepage.component";
 import ShopPage from "./pages/shop/shop.component.jsx";
 import Header from "./components/header/header.component";
 import signInUp from "./pages/sign-in-up/sign-in-up.component";
-import { auth,createUserPorfileDocument } from "./firebase/firebase.utils";
+import { auth, createUserPorfileDocument } from "./firebase/firebase.utils";
 
 class App extends React.Component {
   constructor() {
@@ -14,15 +14,29 @@ class App extends React.Component {
       currentUser: null,
     };
   }
-  // 2nd
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    // 1st
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async user => {
-      // this.setState({ currentUser: user });
-      createUserPorfileDocument(user)
-      // console.log(user);
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+        if(userAuth){
+          // yahan check kar raha ha ky user null ha ya nai
+          const userRef = await createUserPorfileDocument(userAuth)
+          userRef.onSnapshot(snapshot=>{
+            // console.log(snapshot.data())
+            // ye data show karega id or email ka
+            this.setState({
+                currentUser:{
+                  id:snapshot.id,
+                  ...snapshot.data()
+                }
+              },()=>{
+                console.log(this.state)
+
+              })
+            })
+        }
+        // means user ager logout kary to user phir null hojy
+        this.setState({currentUser:userAuth})
     })
   }
   // 3rd
