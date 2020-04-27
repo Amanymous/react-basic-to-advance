@@ -17,27 +17,26 @@ class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-        if(userAuth){
-          // yahan check kar raha ha ky user null ha ya nai
-          const userRef = await createUserPorfileDocument(userAuth)
-          userRef.onSnapshot(snapshot=>{
-            // console.log(snapshot.data())
-            // ye data show karega id or email ka
-            this.setState({
-                currentUser:{
-                  id:snapshot.id,
-                  ...snapshot.data()
-                }
-              },()=>{
-                console.log(this.state)
-
-              })
-            })
-        }
-        // means user ager logout kary to user phir null hojy
-        this.setState({currentUser:userAuth})
-    })
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+      if (userAuth) {
+        // yahan check kar raha ha ky user null ha ya nai
+        const userRef = await createUserPorfileDocument(userAuth);
+        userRef.onSnapshot((snapshot) => {
+          // console.log(snapshot.data())
+          // ye data show karega id or email ka
+          this.setState(
+            {
+              currentUser: {
+                id: snapshot.id,
+                ...snapshot.data()
+            }
+            });
+            console.log(this.state)
+        });
+      }
+      // means user ager logout kary to user phir null hojy
+      this.setState({ currentUser: userAuth });
+    });
   }
   // 3rd
   componentWillUnmount() {
