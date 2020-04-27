@@ -1,43 +1,43 @@
 // ==========================section 1=======================
-// import React from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-// // setState multiple choice ky liye use like ager mijhe
-// // 1 or more then 1 condition lagani ho 
-// class App extends React.Component{
-//   constructor(){
-//     super()
-//     this.state = {
-//       meaningOfLife:9
-//     }
-//   }
-//   handleClick=()=>{
-//     this.setState({meaningOfLife:'aman'}, 
-//     ()=>console.log(this.state.meaningOfLife))
-//     }
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
+// setState multiple choice ky liye use like ager mijhe
+// 1 or more then 1 condition lagani ho 
+class App extends React.Component{
+  constructor(){
+    super()
+    this.state = {
+      meaningOfLife:9
+    }
+  }
+  handleClick=()=>{
+    this.setState({meaningOfLife:'aman'}, 
+    ()=>console.log(this.state.meaningOfLife))
+    }
    
-//   // handleClick=()=>{
-//   //   this.setState({meaningOfLife:this.state.meaningOfLife+1}, 
-//   //   ()=>console.log(this.state.meaningOfLife))
-//   // }
-//   render(){
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//             {this.state.meaningOfLife}
-//         </p>
-//         <button 
-//         onClick={this.handleClick}  >
-//          Update state
-//         </button>
-//       </header>
-//     </div>
-//   );
-// }}
+  // handleClick=()=>{
+  //   this.setState({meaningOfLife:this.state.meaningOfLife+1}, 
+  //   ()=>console.log(this.state.meaningOfLife))
+  // }
+  render(){
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+            {this.state.meaningOfLife}
+        </p>
+        <button 
+        onClick={this.handleClick}  >
+         Update state
+        </button>
+      </header>
+    </div>
+  );
+}}
 
-// export default App;
+export default App;
 
 
 // ===================Section 2==========================
@@ -130,40 +130,40 @@
 // export default App;
 
 // ==================Section 4=========================
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-// setState multiple choice ky liye use like ager mijhe
-// 1 or more then 1 condition lagani ho 
-class App extends React.Component{
-  state = {
-      meaningOfLife:9
-    }
+// import React from 'react';
+// import logo from './logo.svg';
+// import './App.css';
+// // setState multiple choice ky liye use like ager mijhe
+// // 1 or more then 1 condition lagani ho 
+// class App extends React.Component{
+//   state = {
+//       meaningOfLife:9
+//     }
    
-  handleClick=()=>{
-    this.setState((prevState,prevProps)=> {
-      return {meaningOfLife:prevState.meaningOfLife+1}
+//   handleClick=()=>{
+//     this.setState((prevState,prevProps)=> {
+//       return {meaningOfLife:prevState.meaningOfLife+1}
 
-    },
-    ()=>console.log(this.state.meaningOfLife)
-    )
-    }
+//     },
+//     ()=>console.log(this.state.meaningOfLife)
+//     )
+//     }
    
-  render(){
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-            {this.state.meaningOfLife}
-        </p>
-        <button 
-        onClick={this.handleClick}  >
-         Update state
-        </button>
-      </header>
-    </div>
-  );
-}}
+//   render(){
+//   return (
+//     <div className="App">
+//       <header className="App-header">
+//         <img src={logo} className="App-logo" alt="logo" />
+//         <p>
+//             {this.state.meaningOfLife}
+//         </p>
+//         <button 
+//         onClick={this.handleClick}  >
+//          Update state
+//         </button>
+//       </header>
+//     </div>
+//   );
+// }}
 
-export default App;
+// export default App;
